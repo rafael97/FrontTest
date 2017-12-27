@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- BEGIN HEAD -->
+    <head>
+        <meta charset="utf-8" />
+        <title>CONDOR TEST</title>
+
+        <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/node_modules/angular-confirm1/css/angular-confirm.css">
+        <link rel="stylesheet" type="text/css" href="/node_modules/angular-datatables/dist/css/angular-datatables.min.css">
+        <link rel="stylesheet" href="/node_modules/angular-toastr/dist/angular-toastr.css">
+
+        <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.css" rel="stylesheet" media="screen">
+        <!--<link href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css" rel="stylesheet" media="screen">-->
+
+
+        <link href="https://cdn.datatables.net/responsive/2.1.0/css/responsive.dataTables.min.css" rel="stylesheet" media="screen">
+       <link href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" rel="stylesheet" media="screen">
+
+
+        <link rel="stylesheet" href="/app/views/css/override.css">
+
+         <base href="/">
+
+		</head>
+    <!-- END HEAD -->
+
+    <body class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid"  ng-app="CondorTest" style="background: #fbf5da;">
+    <!--Container-->
+        <div style="width: 100%; height: 100%; overflow: scroll;" ui-view></div>
+    <!--END Container-->
+    <!--Module Jquery-->
+        <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <!--Module Angular-->
+        <script src="/node_modules/angular/angular.min.js" type="text/javascript"></script>
+
+        <script src="/node_modules/angular-ui-router/release/angular-ui-router.min.js" type="text/javascript"></script>
+        <script src="/node_modules/angular-animate/angular-animate.min.js" type="text/javascript"></script>
+        <script src="/node_modules/angular-toastr/dist/angular-toastr.tpls.min.js" type="text/javascript"></script>
+        <script src="/node_modules/angular-confirm1/dist/angular-confirm.min.js" type="text/javascript"></script>
+        <script type="text/javascript" src="/node_modules/angular-datatables/dist/angular-datatables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+      <!--  <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.jss"></script>-->
+
+        <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/responsive/2.1.0/js/dataTables.responsive.min.js"></script>
+
+        <script src="/node_modules/chart.js/dist/Chart.min.js"></script>
+        <script src="/node_modules/angular-chart.js/dist/angular-chart.min.js"></script>
+        <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+
+        <!-- Module registration -->
+        <script src="/app/moduleRegistration.js"></script>
+        <!-- Module Services -->
+        <script src="/app/services/log_service.js"></script>
+
+        <!-- Module controllers -->
+        <script src="/app/controllers/log_controller.js"></script>
+        
+       <!-- Environment variables -->
+       <script src="./env.js"></script>
+
+        <!-- Module App -->
+        <script src="/app/app.js"></script>
+
+    
+    </body>
+
+</html>

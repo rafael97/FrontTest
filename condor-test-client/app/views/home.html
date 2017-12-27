@@ -1,0 +1,163 @@
+
+
+        <div class="row">
+        <div class="col-xs-12">
+            <div class="panel">
+                <div class="panel-body" style="background: #fdcd072e;">
+                    <div class="col-sm-3 col-md-3">
+                        <dl>
+                            <div class="col-xs-12 descrip_show"> <dt class="text-primary">Total Average Response Time:</dt>
+                                <dd>{{average}} milliseconds</dd>
+                            </div>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel">
+                <div class="panel-body" style="background: #fdcd072e;">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label" for="startdate">Start date</label>
+                                    <p class="input-group">
+                                        <input type="date" class="form-control" id="enddate" ng-model="startdate" placeholder="YYYY-MM-DD">
+                                     </p>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label" for="enddate">End date</label>
+                                    <p class="input-group">
+                                        <input type="date" class="form-control" id="enddate" ng-model="enddate" placeholder="YYYY-MM-DD">
+                                     </p>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-2 col-md-2">
+                                <div class="form-group">
+                                    <label class="control-label" for="state">State</label>
+                                    <select class="form-control" id="state" ng-model="state" name="state" aria-describedby="inputError2Status">
+                                        <option>FL</option>
+                                        <option>OH</option>
+                                        <option>GA</option>
+                                        <option>LA</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-2 col-md-2">
+                                <label class="control-label">&nbsp;</label>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-success" ng-click="lookForLogs()"> <i class="fa fa-search" aria-hidden="true"></i>&nbsp;&nbsp;Search</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel">
+                <div class="panel-body table-responsive responsive enddate-table" style="background: #fdcd072e;">
+                    <br />
+                    <br />
+                   
+                    <table  datatable="ng" dt-options="dtOptions" class="table  table-striped table-bordered table-responsive responsive">
+                        <thead>
+                            <tr>
+                                <th class="text-center">State Code</th>
+                                <th class="text-center">Pro Code</th>
+                                <th class="text-center">Profession</th>
+                                <th class="text-center">License ID</th>
+                                <th class="text-center">Cycle End Date</th>
+                                <th class="text-center">Compliance Status</th>
+                                <th class="text-center">Client ID</th>
+                                <th class="text-center">Start Log Date</th>
+                                <th class="text-center">End Log Date</th>
+                                <th class="text-center">Environment</th>
+                                <th class="text-center">Machine</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="log in logs">
+                                <td class="text-center">{{log.cd_cebroker_state}}</td>
+                                <td class="text-center">{{log.pro_cde}}</td>
+                                <td class="text-center">{{log.cd_profession}}</td>
+                                <td class="text-center">{{log.id_license}}</td>
+                                <td class="text-center">{{log.dt_end}}</td>
+                                <td class="text-center">{{log.ds_compl_status_returned}}</td>
+                                <td class="text-center">{{log.id_client_nbr}}</td>
+                                <td class="text-center">{{log.dt_Start_Log}}</td>
+                                <td class="text-center">{{log.dt_end_log}}</td>
+                                <td class="text-center">{{log.cd_environment}}</td>
+                                <td class="text-center">{{log.cd_machine}}</td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel">
+                <div class="panel-body" style="background: #fdcd072e;">
+                    <h3 class="text-center text-muted">STATS</h3>
+                    <div class="col-sm-4 col-md-4">
+                        <dl>
+                            <div class="col-xs-12 descrip_show"> <dt class="text-primary">Per day</dt>
+                            <br>
+                                <div class="col-md-12">
+                                    <canvas class="chart chart-bar ng-isolate-scope" chart-data="data" chart-labels="labels" chart-colors="colors" chart-dataset-override="datasetOverride" width="400" height="475" style="display: block; width: 100%; height: 100%;">
+                                    </canvas> 
+ 
+                                </div>
+                            </div>
+                        </dl>
+                    </div>
+                      <div class="col-sm-4 col-md-4">
+                         <dl>
+                            <div class="col-xs-12 descrip_show"> <dt class="text-primary">per machine</dt>
+                            <br>
+                                <div class="col-md-12">
+                                    <canvas class="chart chart-bar ng-isolate-scope" style="display: block; width: 100%; height: 100%;"  chart-data="data1" chart-labels="labels1" chart-colors="colors" chart-dataset-override="datasetOverride1" width="400" height="475" >
+                                    </canvas> 
+ 
+                                </div>
+                            </div>
+                        </dl>
+                    </div>
+                      <div class="col-sm-4 col-md-4">
+                           <dl>
+                            <div class="col-xs-12 descrip_show"> <dt class="text-primary">Per Compliance Status</dt>
+                               <br>
+                                <div class="col-md-12">
+                                    <canvas class="chart chart-bar ng-isolate-scope" chart-data="data2" chart-labels="labels2" chart-colors="colors" chart-dataset-override="datasetOverride2" width="390" height="475" style="display: block; width: 100%; height: 100%;">
+                                    </canvas> 
+ 
+                                </div>
+
+                               
+                            </div>
+                        </dl>
+                    </div>
+                     
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
